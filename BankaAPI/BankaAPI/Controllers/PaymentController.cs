@@ -18,7 +18,7 @@ namespace BankaAPI.Controllers
         {
             _db = DBTool.DBInstance; //Singleton Pattern
         }
-        //Test yorumudur
+        
         [HttpPost]
         public IHttpActionResult ReceivePayment(PaymentDTO item)
         {
