@@ -1,0 +1,67 @@
+﻿@model CargoDTO
+@{
+    ViewBag.Title = "GetCargo";
+}
+
+<h2>Kargo Takip</h2>
+
+<div class="container"> 
+    <div class="panel panel-primary"> 
+        <div class="panel panel-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kargo Takip No</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" class="form-control" id="txtID"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <input type="button" value="Sorgula" class="btn btn-primary" id="btnSorgula"/> <!--Direk <button> yapmamamızın sebebi post özelliğini kullanmadığımızdan-->
+                <br />
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel panel-body">
+            <table id="tab1" class="table table-hover">
+                <tr>
+                    <th>Takip No</th>
+                    <th>Kargolanma Tarihi</th>
+                    <th>Teslim Tarihi</th>
+                    <th>Durum</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script> //API'a JavaScrip'in json kütüphanesiyle bağlantı kuruyoruz
+
+    $(function () //Sayfa tamamiyle render edilsin
+    {
+
+        $("#btnSorgula").click(function () { //id'ye sahip yapıya basıldığında
+
+
+            $.ajax({ //API'a bağlan
+
+                url: "https://localhost:44351/api/Home/GetCargo", //API url'i
+                type: "Get", //Bağlantı tipi
+                data: { id: $("#txtID").val() }, //Request ile birlikte id parametresine argüman veriyoruz
+                success: function (data) { //Request başarılı olursa döndürdüğü değeri data argümanı ile yakaladık
+
+                    $("#tab1").find("tr:gt(0)").remove(); //Önceden veri girişi olduysa, girilen veriyi sildik
+                    $("#tab1").append("<tr><td>" + data.ID + "</td><td>" + data.ShippedDate + "</td><td>" + data.DeliveryDate + "</td><td>" + data.Status + "</td></tr>"); //Gelen veriyi tabloya ekledik
+                }
+            })
+        })
+    })
+
+</script>

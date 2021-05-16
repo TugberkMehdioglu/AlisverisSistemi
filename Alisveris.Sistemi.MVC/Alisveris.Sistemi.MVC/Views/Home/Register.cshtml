@@ -1,0 +1,112 @@
+﻿@model AppUserVM
+@{
+    ViewBag.Title = "Register";
+}
+
+<h4 style="color:#ff0000">@TempData["hata"]</h4> //Hata gösterimi
+
+<div class="jumbotron">
+    <h3>Üye Ol</h3>
+</div>
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel panel-body">
+            @using (Html.BeginForm())
+            {
+                <div>
+                    Kullanıcı Adı Giriniz
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Kullanıcı Adı" }) @*Girilen veri belirtilen property'e bind oldu*@
+                    @Html.ValidationMessageFor(x => x.AppUser.UserName) @*Koşula uyulmazsa validation hatası gösterildi*@
+                </div>
+                <br />
+                <div>
+                    Şifre Giriniz
+                </div>
+
+                <div>
+                    @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control", placeholder = "Şifre" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Password)
+                </div>
+
+                <div>
+                    Şifre Doğrulayınız
+                </div>
+
+                <div>
+                    @Html.PasswordFor(x => x.AppUser.ConfirmPassword, new { @class = "form-control", placeholder = "Şifre" })
+                    @Html.ValidationMessageFor(x => x.AppUser.ConfirmPassword)
+                </div>
+
+                <div>
+                    İsminizi Giriniz
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(x => x.AppUser.Profile.FirstName, new { @class = "form-control", placeholder = "İsim" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Profile.FirstName)
+                </div>
+
+                <div>
+                    Soyisminizi Giriniz
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(x => x.AppUser.Profile.LastName, new { @class = "form-control", placeholder = "Soyisim" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Profile.LastName)
+                </div>
+
+                <br />
+
+                <div>
+                    @Html.DropDownListFor(x => x.AppUser.Profile.Country, new SelectList(TempData["ulkeler"] as List<string>), "Ülke Seçiniz")
+                </div>
+
+                <div>
+                    Şehir Giriniz
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(x => x.AppUser.Profile.City, new { @class = "form-control", placeholder = "Şehir" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Profile.City)
+                </div>
+
+                <div>
+                    Açık Adres Giriniz
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(x => x.AppUser.Profile.Address, new { @class = "form-control", placeholder = "Adres" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Profile.Address)
+                </div>
+
+                <div>
+                    Telefon Numarası Giriniz
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(x => x.AppUser.Profile.Phone, new { @class = "form-control", placeholder = "Cep No" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Profile.Phone)
+                </div>
+
+                <div>
+                    Mail Adresi Gİriniz
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(x => x.AppUser.Profile.Email, new { @class = "form-control", placeholder = "Email" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Profile.Email)
+                </div>
+
+                <br />
+
+                <div>
+                    <button class="btn btn-primary">Üye Ol</button> @*Post işlemini başlatan butonumuz*@
+                </div>
+            }
+        </div>
+    </div>
+</div>

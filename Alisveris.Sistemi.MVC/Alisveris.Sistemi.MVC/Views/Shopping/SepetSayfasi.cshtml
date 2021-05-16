@@ -1,0 +1,46 @@
+﻿@model Cart
+@{
+    ViewBag.Title = "SepetSayfasi";
+}
+
+@*Uyarı varsa uyarıyı göster yoksa sepeti göster*@
+@if (ViewBag.Message != null)
+{
+    <h4 style="color:#ff0000">@ViewBag.Message</h4>
+}
+else
+{
+    <div class="jumbotron">
+        Ödemeniz gereken toplam tutar : @Model.TotalPrice.ToString("C2") Siparişi onaylamak için @Html.ActionLink("tıklayınız", "SiparisiOnayla") @*tıklayınız'a basınca belirtilen action'a yönlendir*@
+    </div>
+
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Ürün İsmi</th>
+                            <th>Ürün Fiyatı</th>
+                            <th>Ürün Adedi</th>
+                            <th>Ara Fiyat</th>
+                            <th>@Html.ActionLink("Alışverişe Devam Et", "ProductList", null, new { @class="btn btn-primary"})</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (CartItem item in Model.Sepetim)
+                        {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Price.ToString("C2")</td>
+                            <td>@item.Amount</td>
+                            <td>@item.SubTotal.ToString("C2")</td>
+                            <td>@Html.ActionLink("Sepetten Çıkar", "SepettenCikar", new { id = item.ID }, new { @class = "btn btn-danger" })</td> @*Buton arka planda id adlı parametreye ürünün ID'sini atar*@
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}

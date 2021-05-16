@@ -1,0 +1,46 @@
+﻿@model AppUserVM
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="jumbotron">
+    <h3>Giriş Yapınız</h3>
+</div>
+
+<div style="color:red">
+    <h3>@ViewBag.Message</h3>
+    <h3 style="color:#28dd13">@TempData["giris"]</h3>
+</div>
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel panel-body">
+            @using (Html.BeginForm())
+            {
+                <div>
+                    Kullanıcı Adı Giriniz
+                </div>
+                <div>
+                    @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Kullanıcı Adı" }) @*Girilen veri belirtilen property'e bind oldu*@
+                    @Html.ValidationMessageFor(x => x.AppUser.UserName) @*Koşula uyulmazsa validation hatası gösterildi*@
+                </div>
+
+                <br />
+
+                <div>
+                    Şifre Giriniz
+                </div>
+                <div>
+                    @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control", placeholder = "Şifre" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Password)
+                </div>
+
+                <br />
+
+                <div>
+                    <button class="btn btn-primary">Giriş</button> @*Post işlemini başlatan butonumuz*@
+                </div>
+            }
+        </div>
+    </div>
+</div>

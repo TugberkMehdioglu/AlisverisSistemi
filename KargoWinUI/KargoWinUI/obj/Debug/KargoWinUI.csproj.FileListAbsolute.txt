@@ -1,0 +1,17 @@
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\KargoWinUI.exe.config
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\KargoWinUI.exe
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\KargoWinUI.pdb
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\WebApiRestService.WebApiClient.dll
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\bin\Debug\WebApiRestService.WebApiClient.xml
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\obj\Debug\KargoWinUI.csprojAssemblyReference.cache
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\obj\Debug\KargoWinUI.Form1.resources
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\obj\Debug\KargoWinUI.Properties.Resources.resources
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\obj\Debug\KargoWinUI.csproj.GenerateResource.cache
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\obj\Debug\KargoWinUI.csproj.CoreCompileInputs.cache
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\obj\Debug\KargoWinUI.csproj.CopyComplete
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\obj\Debug\KargoWinUI.exe
+C:\Users\tugbe\Desktop\KargoWinUI\KargoWinUI\obj\Debug\KargoWinUI.pdb

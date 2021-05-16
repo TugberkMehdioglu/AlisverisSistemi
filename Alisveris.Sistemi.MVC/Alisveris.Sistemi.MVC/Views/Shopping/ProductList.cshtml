@@ -1,0 +1,64 @@
+﻿@model ProductVM
+@{
+    ViewBag.Title = "ProductList";
+    int sira = 0;
+}
+
+<br />
+
+@*Giriş yapıldıysa Çıkış butonu, giriş yapılmadıysa üye ol ve giriş yap butonu gözükür*@
+@if (Session["member"] != null)
+{
+    <div class="container" align="right">
+        @Html.ActionLink("Çıkış", "Exit", "Home", null, new { @class = "btn btn-danger" })
+    </div>
+}
+else
+{
+    <div class="container" align="right">
+        @Html.ActionLink("Üye Ol", "Register", "Home", null, new { @class = "btn btn-primary" })
+        &nbsp; &nbsp;
+        @Html.ActionLink("Giriş Yap", "Login", "Home", null, new { @class = "btn btn-warning" })
+    </div>
+}
+
+@*Varsa uyarılar gözükür*@
+<div style="color:#22c820">
+    <h4>@TempData["giris"]</h4>
+    <h4 style="color:#193ab9">@TempData["silindi"]</h4>
+    <h4 style="color:#fc0d0d">@TempData["hata"]</h4>
+    <h4>@TempData["basarili"]</h4>
+</div>
+
+<br />
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel panel-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Sıra</th>
+                        <th>Ürün Adı</th>
+                        <th>Stok</th>
+                        <th>Fiyat</th>
+                        <th>@Html.ActionLink("Sepete Git", "SepetSayfasi", null, new { @class = "btn btn-success" })</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product item in Model.Products)
+                    {
+                        sira += 1;
+                        <tr>
+                            <td>@sira</td>
+                            <td>@item.Name</td>
+                            <td>@item.Amount</td>
+                            <td>@item.UnitPrice.ToString("C2")</td>
+                            <td>@Html.ActionLink("Sepete Ekle", "SepeteEkle", new { id = item.ID }, new { @class = "btn btn-warning" })</td> @*Buton arka planda id adlı parametreye ürünün ID'sini atar*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

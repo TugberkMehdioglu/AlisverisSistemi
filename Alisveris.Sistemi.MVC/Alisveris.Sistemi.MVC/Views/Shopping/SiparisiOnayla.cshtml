@@ -1,0 +1,42 @@
+﻿@model OrderVM
+@{
+    ViewBag.Title = "SiparisiOnayla";
+}
+
+<h2>SiparisiOnayla</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        Kart Üzerindeki İsmi Giriniz
+    </div>
+
+    <div>
+        @Html.TextBoxFor(x => x.PaymentDTO.CardUserName) @*Girilen veri belirtilen property'e bind oldu*@
+    </div>
+
+    <div>
+        Kart No Giriniz
+    </div>
+
+    <div>
+        @Html.TextBoxFor(x => x.PaymentDTO.CardNumber)
+    </div>
+
+    <div>
+        CVV Giriniz
+    </div>
+
+    <div>
+        @Html.TextBoxFor(x => x.PaymentDTO.SecurityNumber)
+    </div>
+
+    <br />
+
+    <div>
+        Son Kullanma Tarihi (Yıl): @Html.TextBoxFor(x => x.PaymentDTO.CardExpiryYear) &nbsp; &nbsp; Son Kullanma Tarihi (Ay): @Html.TextBoxFor(x => x.PaymentDTO.CardExpiryMonth)
+    </div>
+
+    <button class="btn btn-primary">Siparişi Onayla</button>
+    @*Post işlemini başlatan butonumuz*@
+}
