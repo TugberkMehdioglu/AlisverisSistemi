@@ -3,7 +3,7 @@
     ViewBag.Title = "Register";
 }
 
-<h4 style="color:#ff0000">@TempData["hata"]</h4> //Hata gösterimi
+<h4 style="color:#ff0000">@TempData["hata"]</h4> @*Hata gösterimi*@
 
 <div class="jumbotron">
     <h3>Üye Ol</h3>
@@ -62,7 +62,7 @@
                 <br />
 
                 <div>
-                    @Html.DropDownListFor(x => x.AppUser.Profile.Country, new SelectList(TempData["ulkeler"] as List<string>), "Ülke Seçiniz")
+                    @Html.DropDownListFor(x => x.AppUser.Profile.Country, new SelectList(TempData["ulkeler"] as List<string>), "Ülke Seçiniz", new { @class="form-control"})
                 </div>
 
                 <div>
